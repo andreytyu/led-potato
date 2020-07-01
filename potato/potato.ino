@@ -3,9 +3,9 @@
 #define NUM_LEDS    172
 //#define POT         A0
 
+CRGB colorPalette[] = {CRGB::Red, CRGB::Green, CRGB::Pink, CRGB::Violet, CRGB::Yellow, CRGB::Blue, CRGB::Magenta};
 
 CRGB leds[NUM_LEDS];
-
 
 void setup() {
   FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
@@ -34,7 +34,7 @@ void runBackward(int last_led, int delay_val)   {
 };
 
 void scatterInTheMiddle(int last_led, int delay_val) {
-    CRGB color = CRGB::Red;
+    CRGB color = colorPalette[random(0,6)];
     for(int led = 0; led < last_led; led++) {
           FastLED.clear(); 
           leds[led] = color;
@@ -44,7 +44,7 @@ void scatterInTheMiddle(int last_led, int delay_val) {
           FastLED.show();
 
           if (led == last_led/2) {
-            color = CRGB::Green;
+            color = colorPalette[random(0,6)];
             };
           delay(delay_val);
       }
@@ -56,18 +56,22 @@ void loop() {
   //int pot_val = analogRead(POT);
   //pot_val = map(pot_val, 0, 1023, 1, NUM_LEDS);
   //Serial.println(pot_val);
-  int delay_val = 10;
-  FastLED.clear();
-  //leds[5] = CRGB::Blue;
-  FastLED.show();
+  //int delay_val = 10;
   
+  for(int led = 0; led < NUM_LEDS; led++) {
+          leds[led] = CRGB::Red;
+          FastLED.show();
+  }
+  
+  FastLED.show();
+  delay(100);
   //runForward(NUM_LEDS, delay_val);
   //runBackward(NUM_LEDS, delay_val);
   
-  scatterInTheMiddle(NUM_LEDS, delay_val);
+  //scatterInTheMiddle(NUM_LEDS, delay_val);
   
   //FastLED.clear();
-  delay(10);
+  //delay(10);
   //for (int i=0; i <= NUM_LEDS; i++){
   //    leds[i] = CRGB::Orchid;
    //   leds[i-1] = CRGB(0, 0, 0);
@@ -75,4 +79,4 @@ void loop() {
    //   delay(300); 
    //}
 
-}
+};
