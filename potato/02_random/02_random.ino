@@ -38,7 +38,7 @@ void loop() {
       // запускаем его снова. Чем выше значение stayBlack тем дольше он остается черным
       
  
-      int stayBlack = 20;
+      int stayBlack = 100;
       if (random(stayBlack) == 0)
                         { 
         directions[i] = +1; 
@@ -50,7 +50,15 @@ void loop() {
           r = 10;
           g = 0;
           b = 3;
-        } else {
+        }
+        else if (random(2) == 1) {
+          // orange
+          color[i] = 1;
+          r = 0;
+          g = 10;
+          b = 2;
+        }
+        else {
           // orange
           color[i] = 1;
           r = 5;
@@ -68,8 +76,8 @@ void loop() {
       //Serial.println(i);
       ////Serial.println(brightnesses[i]);
       // change direction at some point
-      int maxBrightness = 80;
-      int minBrightness = 10; // минимальная яркость
+      int maxBrightness = 40;
+      int minBrightness = 20; // минимальная яркость
       //if (brightnesses[i] == random(minBrightness,maxBrightness) || brightnesses[i] == maxBrightness)
       if (brightnesses[i] == maxBrightness)
         directions[i] = -1;
