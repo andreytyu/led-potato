@@ -3,7 +3,7 @@
 #define LED_PIN     13
 #define LED_TYPE    WS2812
 #define COLOR_ORDER RGB
-#define NUM_LEDS   100
+#define NUM_LEDS   172
 CRGB leds[NUM_LEDS];
  
 //  Twinkling 'holiday' lights that fade up and down in brightness.
@@ -29,10 +29,10 @@ CRGB leds[NUM_LEDS];
 //
 //  -Mark Kriegsman, December 2014
  
-#define MASTER_BRIGHTNESS   200
+#define MASTER_BRIGHTNESS   255
  
-#define STARTING_BRIGHTNESS 64
-#define FADE_IN_SPEED       32
+#define STARTING_BRIGHTNESS 100
+#define FADE_IN_SPEED       10
 #define FADE_OUT_SPEED      20
 #define DENSITY            255
  

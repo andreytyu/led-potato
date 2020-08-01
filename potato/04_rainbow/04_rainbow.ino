@@ -7,7 +7,7 @@ int led = 2;
  
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
  
-int delayval = 2; 
+int delayval = 5; 
  
 void setup() {
   strip.begin(); 
@@ -50,6 +50,7 @@ void rainbowCycle(uint8_t wait) {
     for(i=0; i< strip.numPixels(); i++) {
       strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + j) & 255));
     }
+    strip.setBrightness(255);
     strip.show();
     delay(wait);
   }
